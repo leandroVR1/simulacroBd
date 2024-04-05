@@ -1,0 +1,33 @@
+@* @model Companie
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="detallesProductoModalLabel">Detalles del Usuario</h5>
+           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="window.location.href='/Companies'"></button>
+
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <p><strong>Id:</strong>@Model.Id</p>
+                    <p><strong>Nombre:</strong>@Model.Name</p>
+                    <p><strong>Nit:</strong>@Model.Nit</p>
+                    <p><strong>Direccion:</strong>@Model.Address</p>
+                    <p><strong>Descripcion:</strong>@Model.Description</p>
+                    <p><strong>Logo:</strong><img src="@Model.Logo" alt="Company Logo" style="max-width: 100px; max-height: 100px;" /></p>
+                    <p><strong>Telefono:</strong>@Model.Phone</p>
+                    <p><strong>Representante Legal:</strong>@Model.LegalRepresentative</p>
+                    <p><strong>SectorId:</strong>@Model.SectorId</p>
+                    <p><strong>created_at:</strong>@Model.created_at</p>
+                    <p><strong>updated_at:</strong>@Model.updated_at</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ *@

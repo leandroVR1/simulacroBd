@@ -1,0 +1,2 @@
+-- Active: 1712347070745@@154.49.247.1@3306@u493953378_riwi_companies
+SELECT * FROM Sectors
