@@ -1,0 +1,61 @@
+@model Companie
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="agregarLibroModalLabel">Editar</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form asp-action="Edit" asp-controller="Companies" asp-route-id="@Model.Id" method="post">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" value="@Model.Name">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Nit" class="control-label"></label>
+                    <input asp-for="Nit" class="form-control" value="@Model.Nit">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" value="@Model.Address">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" value="@Model.Description">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Logo" class="control-label"></label>
+                    <input asp-for="Logo" class="form-control" value="@Model.Logo">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" value="@Model.Phone">
+                </div>
+                <div class="form-group">
+                    <label asp-for="LegalRepresentative" class="control-label"></label>
+                    <input asp-for="LegalRepresentative" class="form-control" value="@Model.LegalRepresentative">
+                </div>
+                <div class="form-group">
+                    <label asp-for="SectorId" class="control-label"></label>
+                    <input asp-for="SectorId" class="form-control" value="@Model.SectorId">
+                </div>
+                <div class="form-group">
+                    <label asp-for="created_at" class="control-label"></label>
+                    <input asp-for="created_at" class="form-control" value="@Model.created_at">
+                </div>
+                <div class="form-group">
+                    <label asp-for="updated_at" class="control-label"></label>
+                    <input asp-for="updated_at" class="form-control" value="@Model.updated_at">
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+                  
+            

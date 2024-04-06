@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Simulacromvc")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3b13fb642aa2b8876c979952239dcfd79a7c8b9e")]
 [assembly: System.Reflection.AssemblyProductAttribute("Simulacromvc")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Simulacromvc")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

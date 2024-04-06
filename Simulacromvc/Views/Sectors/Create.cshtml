@@ -1,0 +1,52 @@
+@model Sector
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="agregarLibroModalLabel">Agregar Sector</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form asp-action="Create" method="post">
+                  
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control"  />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label asp-for="Description" class="control-label"></label>
+                        <input asp-for="Description" class="form-control"  />
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Author" class="control-label"></label>
+                        <input asp-for="Author" class="form-control"  />
+                        <span asp-validation-for="Author" class="text-danger"></span>
+                    </div>
+
+                    
+                    <div class="form-group">
+                        <label asp-for="created_at" class="control-label"></label>
+                        <input asp-for="created_at" class="form-control"  />
+                        <span asp-validation-for="created_at" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="updated_at" class="control-label"></label>
+                        <input asp-for="updated_at" class="form-control"  />
+                        <span asp-validation-for="updated_at" class="text-danger"></span>
+                    </div>
+                    <button>Guardar</button>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+                  

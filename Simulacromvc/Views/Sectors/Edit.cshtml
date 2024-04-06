@@ -1,0 +1,42 @@
+@model Sector
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="modal-dialog modal-lg">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="agregarLibroModalLabel">Editar</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+            <form asp-action="Edit" asp-controller="Sectors" asp-route-id="@Model.Id" method="post">
+                <div class="form-group">
+                    <label asp-for="Name" class="control-label"></label>
+                    <input asp-for="Name" class="form-control" value="@Model.Name">
+                </div>
+              
+                <div class="form-group">
+                    <label asp-for="Description" class="control-label"></label>
+                    <input asp-for="Description" class="form-control" value="@Model.Description">
+                </div>
+                <div class="form-group">
+                    <label asp-for="Author" class="control-label"></label>
+                    <input asp-for="Author" class="form-control" value="@Model.Author">
+                </div>
+                <div class="form-group">
+                    <label asp-for="created_at" class="control-label"></label>
+                    <input asp-for="created_at" class="form-control" value="@Model.created_at">
+                </div>
+                <div class="form-group">
+                    <label asp-for="updated_at" class="control-label"></label>
+                    <input asp-for="updated_at" class="form-control" value="@Model.updated_at">
+                </div>
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+    </div>
+</div>
+                  
+            

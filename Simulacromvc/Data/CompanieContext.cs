@@ -10,6 +10,7 @@ namespace Simulacromvc.Data{
         {
         }
         public DbSet<Companie> Companies { get; set; }
+        public DbSet<Sector> Sectors { get; set; }
         
     }
     

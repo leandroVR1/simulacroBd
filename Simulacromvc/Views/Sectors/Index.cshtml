@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="content-page">
+        <div class="content">
+            <div class="container-fluid mt-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <a asp-controller="Sectors" asp-action="Create" class="btn btn-primary mb-3">Crear
+                                    Sector</a>
+                                <h2>Sectores</h2>
+                                <form id="searchForm">
+                                    <input type="text" id="searchInput" placeholder="Buscar por nombre...">
+                                    <input type="submit" value="Buscar">
+                                </form>
+                                <div id="sectorList">
+                                  
+                                </div>
+                                <div class="table-responsive mt-4">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <tr class="bg-secondary text-white">
+                                                <th>#</th>
+                                                <th>Nombre</th>
+                                                <th>Descripcion</th>
+                                                <th>Autor</th>
+                                                <th>created_at</th>
+                                                <th>updated_at</th>
+                                                <th>Action</th>
+                                            </tr>
+
+                                        </thead>
+
+                                        @foreach (var sector in Model)
+                                        {
+                                            <tr>
+                                                <th scope="row">@sector.Id</th>
+                                                <td>@sector.Name</td>
+                                                <td>@sector.Description</td>
+                                                <td>@sector.Author</td>
+                                                <td>@sector.created_at</td>
+                                                <td>@sector.updated_at</td>
+                                                
+                                                <td>
+                                                    <a asp-controller="Sectors" asp-action="Details"
+                                                        asp-route-id="@sector.Id" class="btn btn-primary">Details</a>
+                                                    <a asp-controller="Sectors" asp-action="Edit"
+                                                        asp-route-id="@sector.Id" class="btn btn-warning">Edit</a>
+                                                   <a asp-action="Delete" asp-route-id="@sector.Id" class="btn btn-danger">Eliminar</a>
+
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+           @section Scripts {
+    <script>
+        var searchUrl = '@Url.Action("Search", "Sectors")'; 
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="~/js/searchCm.js"></script>
+}
+
+</body>
+
+</html>
