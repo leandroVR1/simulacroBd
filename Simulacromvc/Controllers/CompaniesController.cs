@@ -3,13 +3,18 @@ using Microsoft.EntityFrameworkCore;
 using Simulacromvc.Controllers;
 using Simulacromvc.Models;
 using Simulacromvc.Data;
+using Simulacromvc.Helpers;
+using Simulacromvc.Providers;
 
 namespace Simulacromvc.Controllers{
     public class CompaniesController : Controller{
         public readonly CompanieContext _context;
-        public CompaniesController(CompanieContext context)
+        private readonly HelperUploadFiles helperUploadFiles;
+
+        public CompaniesController(CompanieContext context, HelperUploadFiles helperUpload)
         {
             _context = context;
+            this.helperUploadFiles=helperUpload;
         }
         public async Task<IActionResult> Index(){
             var companies = await _context.Companies.ToListAsync();
@@ -24,8 +29,32 @@ namespace Simulacromvc.Controllers{
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(Companie companie){
-            if(ModelState.IsValid){
+        public async Task<IActionResult> Create(Companie companie, IFormFile archivo ,int ubicacion){
+            if(ModelState.IsValid){ 
+                string nombreArchivo = archivo.FileName;
+                string path = "";
+
+                 switch(ubicacion){
+
+                case 0:
+                    path = await this.helperUploadFiles.UploadFilesAsync(archivo, nombreArchivo, Folders.Uploads);
+                break;
+                case 1:
+                    path = await this.helperUploadFiles.UploadFilesAsync(archivo, nombreArchivo, Folders.Images);
+                break;
+                case 2:
+                    path = await this.helperUploadFiles.UploadFilesAsync(archivo, nombreArchivo, Folders.Documents);
+                break;
+                case 3:
+                    path = await this.helperUploadFiles.UploadFilesAsync(archivo, nombreArchivo, Folders.Temp);
+                break;
+               
+
+            }
+                if(archivo!= null){
+                   
+                    companie.Logo = nombreArchivo;
+                }
                 _context.Companies.Add(companie);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

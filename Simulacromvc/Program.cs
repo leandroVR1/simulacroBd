@@ -1,5 +1,7 @@
-using Simulacromvc.Data;
+using Simulacromvc.Helpers;
+using Simulacromvc.Providers;
 using Microsoft.EntityFrameworkCore;
+using Simulacromvc.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,7 +12,9 @@ builder.Services.AddDbContext<CompanieContext>(options =>
                                 builder.Configuration.GetConnectionString("MySqlConnection"),
                                 Microsoft.EntityFrameworkCore.ServerVersion.Parse("8.0.20-mysql")));
 
-                           
+//referemcia agregar funciones para subir archivos                           
+builder.Services.AddSingleton<PathProvider>();
+builder.Services.AddSingleton<HelperUploadFiles>();
 
 var app = builder.Build();
 
